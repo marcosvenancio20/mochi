@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cq03oalq1tv4y"]
+[gd_scene load_steps=23 format=3 uid="uid://cq03oalq1tv4y"]
 
 [ext_resource type="Texture2D" uid="uid://gkxpipwpvjn6" path="res://Assets/Sprite Pack 2/Sprite Pack 2/2 - Mr. Mochi/Idle (32 x 32).png" id="1_bo08i"]
 [ext_resource type="Texture2D" uid="uid://gbkslay1iig4" path="res://Assets/Seasonal Tilesets/Seasonal Tilesets/2 - Autumn Forest/Terrain (16 x 16).png" id="1_eck3n"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://mnwrm5vkv4ty" path="res://Assets/Seasonal Tilesets/Seasonal Tilesets/2 - Autumn Forest/Background parts/_Complete_static_BG_(288 x 208).png" id="2_foyw7"]
 [ext_resource type="Texture2D" uid="uid://d1ho43a4vtrl0" path="res://Assets/Seasonal Tilesets/Seasonal Tilesets/2 - Autumn Forest/Autumn_entities (16 x 16).png" id="2_xsnk2"]
 [ext_resource type="Texture2D" uid="uid://d267ouye2yyl1" path="res://Assets/Seasonal Tilesets/Seasonal Tilesets/2 - Autumn Forest/Background parts/2 - Trees.png" id="3_l6eyr"]
+[ext_resource type="Texture2D" uid="uid://dlnssscasve46" path="res://Assets/Sprite Pack 2/Sprite Pack 2/2 - Mr. Mochi/Jumping (32 x 32).png" id="7_0l1we"]
+[ext_resource type="Texture2D" uid="uid://d0608t1dsda71" path="res://Assets/Sprite Pack 2/Sprite Pack 2/2 - Mr. Mochi/Running (32 x 32).png" id="8_466b2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l6eyr"]
 texture = ExtResource("1_eck3n")
@@ -116,14 +118,19 @@ texture = ExtResource("2_xsnk2")
 12:3/0 = 0
 14:3/0 = 0
 14:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4.67633, -8, 8, -8, 8, -3.0576, -4.85619, -3.23746)
+14:3/0/physics_layer_0/polygon_0/one_way = true
 15:3/0 = 0
 15:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, -2.87774, -8, -3.23746, -8, -8)
+15:3/0/physics_layer_0/polygon_0/one_way = true
 16:3/0 = 0
 16:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, -8, 8, -2.87774, -8, -3.23746, -8, -8)
+16:3/0/physics_layer_0/polygon_0/one_way = true
 17:3/0 = 0
 17:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -8, -3.0576, 8, -3.41732, 8, -8)
+17:3/0/physics_layer_0/polygon_0/one_way = true
 18:3/0 = 0
 18:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 5.2159, -8, 5.03605, -2.87774, -8, -3.0576)
+18:3/0/physics_layer_0/polygon_0/one_way = true
 14:4/0 = 0
 16:4/0 = 0
 18:4/0 = 0
@@ -483,6 +490,10 @@ sources/2 = SubResource("TileSetAtlasSource_c00e3")
 sources/3 = SubResource("TileSetAtlasSource_0l1we")
 sources/4 = SubResource("TileSetAtlasSource_466b2")
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eck3n"]
+radius = 7.0
+height = 16.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_eck3n"]
 atlas = ExtResource("1_bo08i")
 region = Rect2(0, 0, 32, 32)
@@ -490,6 +501,26 @@ region = Rect2(0, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_xsnk2"]
 atlas = ExtResource("1_bo08i")
 region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evv1w"]
+atlas = ExtResource("7_0l1we")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6t2mo"]
+atlas = ExtResource("8_466b2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xq862"]
+atlas = ExtResource("8_466b2")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rnwmu"]
+atlas = ExtResource("8_466b2")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdopl"]
+atlas = ExtResource("8_466b2")
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_l6eyr"]
 animations = [{
@@ -503,11 +534,32 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evv1w")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6t2mo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xq862")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rnwmu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdopl")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
 }]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eck3n"]
-radius = 7.0
-height = 16.0
 
 [node name="world-01" type="Node2D"]
 
@@ -520,11 +572,22 @@ layer_0/tile_data = PackedInt32Array(1114112, 262145, 1, 1114113, 262145, 1, 111
 [node name="Mr_mochi" type="CharacterBody2D" parent="."]
 script = ExtResource("1_foyw7")
 
-[node name="piscar_mochi" type="AnimatedSprite2D" parent="Mr_mochi"]
-position = Vector2(42, 98)
-sprite_frames = SubResource("SpriteFrames_l6eyr")
-frame_progress = 0.243142
-
 [node name="colisao_mochi" type="CollisionShape2D" parent="Mr_mochi"]
-position = Vector2(42, 106)
+position = Vector2(293, 165)
 shape = SubResource("CapsuleShape2D_eck3n")
+
+[node name="Camera2D" type="Camera2D" parent="Mr_mochi"]
+position = Vector2(108, 71)
+anchor_mode = 0
+zoom = Vector2(1.7, 1.7)
+drag_horizontal_enabled = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Mr_mochi"]
+
+[node name="piscar_mochi" type="AnimatedSprite2D" parent="Mr_mochi/AnimationPlayer"]
+position = Vector2(293, 158)
+sprite_frames = SubResource("SpriteFrames_l6eyr")
+animation = &"run"
+autoplay = "default"
