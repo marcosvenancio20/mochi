@@ -1,60 +1,21 @@
-[gd_scene load_steps=11 format=3 uid="uid://cb0xsar0n5xvw"]
+[gd_scene load_steps=15 format=3 uid="uid://cb0xsar0n5xvw"]
 
 [ext_resource type="Script" uid="uid://cywxo5ycnfd0h" path="res://enemy.gd" id="1_iifgy"]
 [ext_resource type="Texture2D" uid="uid://0c7s1twd5vyl" path="res://Assets/Sprite Pack 2/Sprite Pack 2/4 - Robo Pumpkin/Hurt (16 x 16).png" id="1_qi2p4"]
 [ext_resource type="Texture2D" uid="uid://cr57kps3rn2y8" path="res://Assets/Sprite Pack 2/Sprite Pack 2/4 - Robo Pumpkin/Walking (16 x 16).png" id="2_iifgy"]
 [ext_resource type="Texture2D" uid="uid://dulg28gblvnwf" path="res://Assets/Sprite Pack 2/Sprite Pack 2/4 - Robo Pumpkin/Standing (16 x 16).png" id="3_epg4t"]
+[ext_resource type="Texture2D" uid="uid://npadggppwtm" path="res://Assets/Mini FX, Items & UI/Mini FX, Items & UI/Effects/Cloud_Poof (16 x 16).png" id="5_3yqyl"]
+[ext_resource type="PackedScene" uid="uid://df1jxlcw6dree" path="res://hitbox.tscn" id="5_epg4t"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3yqyl"]
-radius = 6.0
-
-[sub_resource type="Animation" id="Animation_wujgv"]
-resource_name = "walking"
-length = 0.2
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("trexture:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_iifgy")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("trexture:hframes")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [2]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("trexture:frame")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.0666667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [0, 1]
-}
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3yqyl"]
+size = Vector2(14, 9)
 
 [sub_resource type="Animation" id="Animation_hb8ge"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("trexture:texture")
+tracks/0/path = NodePath("texture:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -66,19 +27,19 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("trexture:hframes")
+tracks/1/path = NodePath("texture:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [2]
+"values": [7]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("trexture:frame")
+tracks/2/path = NodePath("texture:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -91,11 +52,10 @@ tracks/2/keys = {
 [sub_resource type="Animation" id="Animation_e1ltt"]
 resource_name = "hurt"
 length = 0.2
-loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("trexture:texture")
+tracks/0/path = NodePath("texture:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -107,7 +67,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("trexture:hframes")
+tracks/1/path = NodePath("texture:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -119,7 +79,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("trexture:frame")
+tracks/2/path = NodePath("texture:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -136,7 +96,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("trexture:texture")
+tracks/0/path = NodePath("texture:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -148,7 +108,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("trexture:hframes")
+tracks/1/path = NodePath("texture:hframes")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -160,7 +120,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("trexture:frame")
+tracks/2/path = NodePath("texture:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -170,26 +130,110 @@ tracks/2/keys = {
 "values": [0]
 }
 
+[sub_resource type="Animation" id="Animation_wujgv"]
+resource_name = "walking"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("texture:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_iifgy")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("texture:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("texture:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_pwjut"]
+resource_name = "hurt_2"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("texture:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_3yqyl")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("texture:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("texture:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 5, 6]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pwjut"]
 _data = {
 &"RESET": SubResource("Animation_hb8ge"),
 &"hurt": SubResource("Animation_e1ltt"),
+&"hurt_2": SubResource("Animation_pwjut"),
 &"standing": SubResource("Animation_dxifv"),
 &"walking": SubResource("Animation_wujgv")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wujgv"]
+size = Vector2(12, 3)
+
 [node name="enemy" type="CharacterBody2D"]
 script = ExtResource("1_iifgy")
 
-[node name="trexture" type="Sprite2D" parent="."]
+[node name="texture" type="Sprite2D" parent="."]
 position = Vector2(0, -8)
 texture = ExtResource("1_qi2p4")
-hframes = 2
+hframes = 7
 
 [node name="colision" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0, -7)
-shape = SubResource("CircleShape2D_3yqyl")
+position = Vector2(0, -5.5)
+shape = SubResource("RectangleShape2D_3yqyl")
 
 [node name="anim" type="AnimationPlayer" parent="."]
 libraries = {
@@ -201,3 +245,12 @@ speed_scale = 0.435
 [node name="wall_detector" type="RayCast2D" parent="."]
 position = Vector2(-2, -7)
 target_position = Vector2(-7, 0)
+
+[node name="hitbox" parent="." instance=ExtResource("5_epg4t")]
+
+[node name="Collision2" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(0, -11.5)
+shape = SubResource("RectangleShape2D_wujgv")
+debug_color = Color(0.886746, 0.32196, 0.193077, 0.42)
+
+[connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
